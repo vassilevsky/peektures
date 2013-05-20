@@ -79,11 +79,21 @@
   };
 
   update_main_photo = function() {
-    var caption, i, p, u, _i, _results;
-    p = all_photos[current_pid];
-    u = hashed_users[p.owner];
-    $('main_photo').src = p.src_big;
-    caption = p.caption;
+    var caption, i, main_photo, max_w, photo, target_h, user, _i, _results;
+    photo = all_photos[current_photo_id];
+    user = users[photo.owner];
+    main_photo = $("main_photo");
+    main_photo.src = photo.src_big;
+    max_w = $("body").offsetWidth;
+    if (photo.src_big_width > max_w) {
+      target_h = Math.round(max_w * photo.src_big_height / photo.src_big_width);
+      main_photo.width = max_w;
+      main_photo.height = target_h;
+    } else {
+      main_photo.width = photo.width;
+      main_photo.height = photo.height;
+    }
+    caption = photo.caption;
     if (caption.length) {
       caption += " &mdash; ";
     }
