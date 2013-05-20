@@ -19,11 +19,11 @@
       %td(valign="middle")
         %center
           #login_button(style="display: none")
-            %p Please allow me to read your friends' photos...
+            %p Пожалуйста, нажмите на кнопку ниже и предоставьте необходимые разрешения. Спасибо.
             .fb-login-button(data-show-faces="true" data-width="200" data-max-rows="1" data-scope="friends_photos")
           #photos
-            = image_tag 'logo_fb_black.png', id: 'main_photo', alt: 'Loading...'
-            %p#main_caption Loading...
+            = image_tag 'logo_fb_black.png', id: 'main_photo', alt: 'Загрузка...'
+            %p#main_caption Загрузка списка фотографий...
   %div(style="display: none")
     = image_tag 'logo_fb_black.png'
     = image_tag 'logo_fb_black.png'
