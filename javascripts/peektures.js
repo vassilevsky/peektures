@@ -21,7 +21,7 @@
   };
 
   auth_handler = function(response) {
-    if (response.status === 'connected') {
+    if (response.status === "connected") {
       return show_photos();
     } else {
       return authorize();
@@ -29,14 +29,14 @@
   };
 
   authorize = function() {
-    $('login_button').style.display = '';
-    return $('photos').style.display = 'none';
+    $("login_button").style.display = "";
+    return $("photos").style.display = "none";
   };
 
   show_photos = function() {
-    $('login_button').style.display = 'none';
-    $('photos').style.display = '';
-    return FB.api('/fql', {
+    $("login_button").style.display = "none";
+    $("photos").style.display = "";
+    return FB.api("/fql", {
       q: {
         'friends': 'SELECT uid2 FROM friend WHERE uid1 = me()',
         'users': 'SELECT uid, name, profile_url FROM user WHERE uid IN (\
@@ -59,7 +59,7 @@
         all_photos = response.data[1].fql_result_set;
         all_users = response.data[2].fql_result_set;
         hashed_users = hash_by(all_users, 'uid');
-        $('main_photo').onclick = next_photo;
+        $("main_photo").onclick = next_photo;
         window.onkeydown = function(event) {
           var _ref, _ref1;
           if (_ref = event.keyCode, __indexOf.call(next_keys, _ref) >= 0) {
@@ -92,7 +92,7 @@
     $('main_photo').src = p.src_big;
     caption = p.caption;
     if (caption.length) {
-      caption += ' &mdash; ';
+      caption += " &mdash; ";
     }
     caption += '<i><a target="_blank"\
                     title="View profile in a new tab"\
@@ -129,13 +129,13 @@
   };
 
   FB.init({
-    appId: '138578366272412',
+    appId: "138578366272412",
     status: true,
     cookie: true,
     xfbml: true
   });
 
-  FB.Event.subscribe('auth.authResponseChange', auth_handler);
+  FB.Event.subscribe("auth.authResponseChange", auth_handler);
 
   FB.getLoginStatus(auth_handler);
 
