@@ -121,7 +121,8 @@
     appId: "138578366272412",
     status: true,
     cookie: true,
-    xfbml: true
+    xfbml: true,
+    channelUrl: "//peektures.ru/channel.html"
   });
 
   FB.Event.subscribe("auth.authResponseChange", auth_handler);
