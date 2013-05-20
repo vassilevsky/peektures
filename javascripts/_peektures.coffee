@@ -117,6 +117,7 @@ FB.init
   status     : true # check login status
   cookie     : true # enable cookies to allow the server to access the session
   xfbml      : true # parse XFBML
+  channelUrl : "//peektures.ru/channel.html"
 
 FB.Event.subscribe "auth.authResponseChange", auth_handler
 FB.getLoginStatus auth_handler
