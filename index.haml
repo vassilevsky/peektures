@@ -1,0 +1,32 @@
+!!!
+%head
+  %title Peektures
+  :css
+    body, td, a {
+        background-color: black;
+        color: gray;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 11px;
+        text-decoration: none;
+    }
+    a:hover {
+        color: lightgray;
+    }
+%body
+  #fb-root
+  %table(width="100%" height="100%")
+    %tr
+      %td(valign="middle")
+        %center
+          #login_button(style="display: none")
+            %p Please allow me to read your friends' photos...
+            .fb-login-button(data-show-faces="true" data-width="200" data-max-rows="1" data-scope="friends_photos")
+          #photos
+            = image_tag 'logo_fb_black.png', id: 'main_photo', alt: 'Loading...'
+            %p#main_caption Loading...
+  %div(style="display: none")
+    = image_tag 'logo_fb_black.png'
+    = image_tag 'logo_fb_black.png'
+    = image_tag 'logo_fb_black.png'
+  = javascript_include_tag '//connect.facebook.net/ru_RU/all.js'
+  = javascript_include_tag 'peektures'
