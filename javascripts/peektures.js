@@ -63,7 +63,7 @@
         };
         return next_photo();
       } else {
-        return $('main_caption').innerHTML = "There's some problem loading photos :(";
+        return $("main_caption").innerHTML = "При загрузке списка фотографий возникла какая-то ошибка :(                                       Пожалуйста, попробуйте перезагрузить страницу.";
       }
     });
   };
@@ -87,13 +87,9 @@
     if (caption.length) {
       caption += " &mdash; ";
     }
-    caption += '<i><a target="_blank"\
-                    title="View profile in a new tab"\
-                    href="' + u.profile_url + '">' + u.name + '</a>, ' + ts2date(p.created) + '</i>';
-    caption += ' <a target="_blank"\
-                  title="Open on Facebook in a new tab to write a comment or like"\
-                  href="' + p.link + '">&#9998;</a>';
-    $('main_caption').innerHTML = caption;
+    caption += "<i><a target='_blank' title='Открыть профиль в новой вкладке'              href='" + user.profile_url + "'>" + user.name + "</a>, " + (ts2date(photo.created)) + "</i>";
+    caption += " <a target='_blank'                  title='Открыть в новой вкладке, чтобы поставить лайк или написать комментарий'                  href='" + photo.link + "'>&#9998;</a>";
+    $("main_caption").innerHTML = caption;
     _results = [];
     for (i = _i = 1; _i <= 10; i = ++_i) {
       _results.push($("preload_" + i).src = all_photos[current_photo_id + i].src_big);
