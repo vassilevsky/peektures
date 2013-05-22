@@ -1,0 +1,11 @@
+body, td, a {
+  background-color: black;
+  color: gray;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightgray;
+}
