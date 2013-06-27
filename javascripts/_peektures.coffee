@@ -74,15 +74,15 @@ update_main_photo = ->
   main_photo = $("main_photo")
   main_photo.src = photo.src_big
 
-  max_w = $("body").offsetWidth
+  max_w = window.innerWidth
   if photo.src_big_width > max_w
     target_h = Math.round(max_w * photo.src_big_height / photo.src_big_width)
 
     main_photo.width = max_w
     main_photo.height = target_h
   else
-    main_photo.width = photo.width
-    main_photo.height = photo.height
+    main_photo.width = photo.src_big_width
+    main_photo.height = photo.src_big_height
 
   caption = photo.caption
   caption += " &mdash; " if caption.length
