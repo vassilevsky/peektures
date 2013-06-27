@@ -90,8 +90,8 @@
       main_photo.width = max_w;
       main_photo.height = target_h;
     } else {
-      main_photo.width = photo.width;
-      main_photo.height = photo.height;
+      main_photo.width = photo.src_big_width;
+      main_photo.height = photo.src_big_height;
     }
     caption = photo.caption;
     if (caption.length) {
