@@ -30,15 +30,10 @@ show_photos = ->
     "/fql"
     q:
       "friends": "SELECT uid2 FROM friend WHERE uid1 = me()"
-      "photos" : "SELECT owner, src_big, src_big_width, src_big_height, link, caption, created
-                  FROM photo WHERE aid IN (
-                    SELECT aid FROM album WHERE owner IN (
-                      SELECT uid2 FROM #friends
-                    )
+      "photos" : "SELECT owner, src_big, src_big_width, src_big_height, link, caption, created FROM photo WHERE aid IN (
+                    SELECT aid FROM album WHERE owner IN (SELECT uid2 FROM #friends)
                   ) ORDER BY created DESC"
-      "users"  : "SELECT uid, name, profile_url FROM standard_user_info WHERE uid IN(
-                    SELECT owner FROM #photos
-                  )"
+      "users"  : "SELECT uid, name, profile_url FROM user WHERE uid IN(SELECT owner FROM #photos)"
     (response) ->
       if response.data and response.data.length
         all_friends = response.data[0].fql_result_set
