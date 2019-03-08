@@ -1,0 +1,6 @@
+Peektures privacy policy
+------------------------
+
+The Peektures app does not collect or store any personal information on any servers.
+
+It does not use Facebook API and does not display any photos via your Facebook account unless you give your explicit permission.
